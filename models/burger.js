@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+// require("dotenv").config({ path: "../.env" });
 
 const { orm } = require("../config/orm");
 
@@ -9,7 +9,7 @@ exports.Burger = {
   insertOne: postObj => {
     return orm.insertOne("burgers", postObj);
   },
-  updateOne: (postObj, condition) => {
-    return orm.updateOne("burgers", postObj, condition);
+  updateOne: (postObj, whereCol, whereVal) => {
+    return orm.updateOne("burgers", postObj, whereCol, whereVal);
   }
 };

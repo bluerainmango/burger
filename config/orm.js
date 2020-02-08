@@ -17,9 +17,9 @@ exports.orm = {
     // const postObj = {}
     return connection.query(q, [table, postObj]);
   },
-  updateOne: (table, postObj, condition) => {
-    const q = "UPDATE ?? SET ? WHERE ?";
-    return connection.query(q, [table, postObj, condition]);
+  updateOne: (table, postObj, whereCol, whereVal) => {
+    const q = "UPDATE ?? SET ? WHERE ?? = ?";
+    return connection.query(q, [table, postObj, whereCol, whereVal]);
   }
 };
 

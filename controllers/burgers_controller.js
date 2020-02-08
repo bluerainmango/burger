@@ -8,8 +8,37 @@ const router = express.Router();
 router
   .route("/")
   .get(async (req, res) => {
-    res.status(200).send(await Burger.selectAll());
+    const burgers = await Burger.selectAll();
+
+    res.status(200).json({
+      status: "success",
+      results: burgers.length,
+      data: {
+        data: burgers
+      }
+    });
   })
-  .post((req, res) => {});
+  .post(async (req, res) => {
+    const post = req.body;
+    const result = await Burger.insertOne(post);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: result
+      }
+    });
+  })
+  .patch(async (req, res) => {
+    const { id, devoured } = req.body;
+    const result = await Burger.updateOne({ devoured }, "id", id);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: result
+      }
+    });
+  });
 
 module.exports = router;
