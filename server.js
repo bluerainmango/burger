@@ -19,6 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use("/api/burgers", burgerRouter);
+
 app.use("/", async (req, res) => {
   const burgers = await Burger.selectAll();
   res.render("index", { burgers });

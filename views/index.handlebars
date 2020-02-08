@@ -4,7 +4,7 @@
 <ul>
     {{#each burgers}}
     {{#if devoured}}
-    {{> burgers/burger-block }}
+    {{> burger-block }}
     {{/if}}
     {{/each}}
 </ul>
@@ -12,7 +12,13 @@
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-    {{> burgers/burger-block }}
+    {{> burger-block }}
     {{/unless}}
     {{/each}}
 </ul>
+
+<form>
+    <textarea name="burgerName" id="form__burgerName" cols="30" rows="10"
+        placeholder="Type the name of burger"></textarea>
+    <button type="submit">Submit</button>
+</form>
