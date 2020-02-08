@@ -1,3 +1,18 @@
 <div>
     <img src="/img/burger.jpg" alt="" srcset="" style="width: 100px">
 </div>
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block }}
+    {{/if}}
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block }}
+    {{/unless}}
+    {{/each}}
+</ul>
