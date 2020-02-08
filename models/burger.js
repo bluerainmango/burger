@@ -3,8 +3,8 @@ require("dotenv").config({ path: "../.env" });
 const { orm } = require("../config/orm");
 
 exports.Burger = {
-  selectAll: async () => {
-    return await orm.selectAll("burgers");
+  selectAll: () => {
+    return orm.selectAll("burgers");
   },
   insertOne: postObj => {
     return orm.insertOne("burgers", postObj);
