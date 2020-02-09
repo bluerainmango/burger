@@ -3,8 +3,10 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
-const burgerRouter = require("./controllers/burgers_controller");
-const { Burger, BurgerType } = require("./models/burger");
+const {
+  burgerRouter,
+  viewRouter
+} = require("./controllers/burgers_controller");
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,15 +27,12 @@ app.set("view engine", "handlebars");
 app.use("/api/burgers", burgerRouter);
 
 // View router
-app.use("/", async (req, res) => {
-  // Get all burgers' info
-  const burgers = await Burger.selectAll();
+app.use("/", viewRouter);
 
-  // Get a burger character type
-  const character = await BurgerType.selectAll();
-  const burger_type = character[0].burger_type;
-
-  res.render("index", { burgers, burger_type });
+// Global error handler: catching errors from catchAsync
+app.use((err, req, res, next) => {
+  console.log(`🚨`, err);
+  res.status(400).render("error");
 });
 
 // Server

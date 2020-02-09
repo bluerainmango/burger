@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         burger_name: name,
         devoured: false
       })
-      .then(res => {
+      .then(() => {
         location.reload();
       })
       .catch(err => {
@@ -39,8 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
           devoured,
           burger_type
         })
-        .then(result => {
+        .then(() => {
           location.reload();
+        })
+        .catch(err => {
+          console.log(err);
         });
     }
   });
