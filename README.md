@@ -1,4 +1,4 @@
-## 🍔 Yummy-Burger
+# 🍔 Yummy-Burger
 
 A fun burger logger with MySQL, Node, Express, Handlebars and ORM!
 
@@ -9,3 +9,8 @@ A fun burger logger with MySQL, Node, Express, Handlebars and ORM!
 ### Demo
 
 ![screenshot](/demo.gif)
+
+#### Image attribution(free)
+
+- Burger vector created by rawpixel.com
+- Burger character vector created by freepik.com
