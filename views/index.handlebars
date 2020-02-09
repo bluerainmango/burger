@@ -1,27 +1,40 @@
-<div>
-    <img src="/img/burger.jpg" alt="" srcset="" style="width: 100px">
+<div id="image">
+    <img src="/img/burger.png" alt="burger">
 </div>
+<h1>YUMMY-BURGER</h1>
 <div id="list">
-    <ul>
+    <ol>
         {{#each burgers}}
         {{#unless devoured}}
         {{> burger-block }}
         {{/unless}}
         {{/each}}
-    </ul>
+    </ol>
 
-    <ul>
+    <ol>
         {{#each burgers}}
         {{#if devoured}}
         {{> burger-block }}
         {{/if}}
         {{/each}}
-    </ul>
+    </ol>
 </div>
+{{!-- {{#if burgerType}}
+<img src="/img/taste.png" alt="burger" id="character">
+{{/if}}
+{{#unless burgerType}}
+<img src="/img/eat.png" alt="burger" id="character">
+{{/unless}} --}}
+{{#unless burger_type}}
+<img src="/img/taste.png" alt="burger" id="character">
+{{/unless}}
 
-
+{{#if burger_type}}
+<img src="/img/eat.png" alt="burger" id="character">
+{{/if}}
 <form>
-    <textarea name="burgerName" id="form__burgerName" cols="30" rows="10"
-        placeholder="Type the name of burger"></textarea>
+    <h2>Enter your burger</h2>
+    <textarea name="burgerName" id="form__burgerName"
+        placeholder="Enter any burger's name you want to eat and click 'Submit' button."></textarea>
     <button type="submit">Submit</button>
 </form>

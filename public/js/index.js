@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         devoured: false
       })
       .then(res => {
-        console.log(res);
         location.reload();
       })
       .catch(err => {
@@ -26,19 +25,22 @@ list.addEventListener("click", function(e) {
   if (e.target.matches("button")) {
     const li = e.target.closest("li");
     const id = li.getAttribute("data-id");
-    const burger_name = li.getAttribute("data-burgername");
     const devoured = li.getAttribute("data-devoured") === "1" ? false : true;
+    let burger_type = true;
 
-    console.log(li, devoured);
+    if (devoured) {
+      burger_type = true;
+    } else {
+      burger_type = false;
+    }
 
     axios
       .patch("/api/burgers", {
         id,
-        burger_name,
-        devoured
+        devoured,
+        burger_type
       })
       .then(result => {
-        console.log(result);
         location.reload();
       });
   }
