@@ -1,8 +1,10 @@
+DROP DATABASE IF EXISTS burgers_db;
 CREATE DATABASE burgers_db;
 USE burgers_db;
 
 CREATE TABLE burgers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     burger_name VARCHAR(100),
-    devoured BOOLEAN
+    devoured BOOLEAN,
+    changed_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW()
 );

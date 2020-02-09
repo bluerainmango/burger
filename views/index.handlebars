@@ -4,17 +4,17 @@
 <div id="list">
     <ul>
         {{#each burgers}}
-        {{#if devoured}}
+        {{#unless devoured}}
         {{> burger-block }}
-        {{/if}}
+        {{/unless}}
         {{/each}}
     </ul>
 
     <ul>
         {{#each burgers}}
-        {{#unless devoured}}
+        {{#if devoured}}
         {{> burger-block }}
-        {{/unless}}
+        {{/if}}
         {{/each}}
     </ul>
 </div>

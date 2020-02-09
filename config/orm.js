@@ -7,7 +7,7 @@ const connection = require("./connection");
 
 exports.orm = {
   selectAll: table => {
-    const q = "SELECT * FROM ??";
+    const q = "SELECT * FROM ?? ORDER BY changed_at";
     const res = connection.query(q, table);
     // console.log("orm: ", res);
     return res;
