@@ -20,17 +20,20 @@
     </ol>
 </div>
 
-{{#unless burger_type}}
-<img src="/img/taste.png" alt="burger" id="character">
-{{/unless}}
+<div class="form_container">
+    {{#unless burger_type}}
+    <img src="/img/taste.png" alt="burger" id="character">
+    {{/unless}}
 
-{{#if burger_type}}
-<img src="/img/eat.png" alt="burger" id="character">
-{{/if}}
+    {{#if burger_type}}
+    <img src="/img/eat.png" alt="burger" id="character">
+    {{/if}}
 
-<form>
-    <h2>Enter your burger</h2>
-    <textarea name="burgerName" id="form__burgerName"
-        placeholder="Enter any burger's name you want to eat and click the 'submit' button."></textarea>
-    <button type="submit">Submit</button>
-</form>
+
+    <form>
+        <h2>Enter your burger</h2>
+        <textarea name="burgerName" id="form__burgerName"
+            placeholder="Enter any burger's name you want to eat and click the 'submit' button."></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
