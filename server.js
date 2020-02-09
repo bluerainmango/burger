@@ -35,7 +35,7 @@ app.use((err, req, res, next) => {
   res.status(400).render("error");
 });
 
-// Server
+// Server listening
 app.listen(PORT, err => {
   if (err) throw err;
   console.log(`Listening from ${PORT}...`);
