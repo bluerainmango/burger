@@ -1,12 +1,14 @@
 const mysql = require("mysql");
 const { promisify } = require("util");
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PWD,
-  database: "burgers_db"
-});
+// const connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PWD,
+//   database: "burgers_db"
+// });
+
+const connection = mysql.createConnection(process.env.DATABASE_URL);
 
 connection.connect(err => {
   if (err) {
