@@ -8,7 +8,7 @@ A fun burger logger with MySQL, Node, Express, Handlebars and ORM!
 
 ### Demo
 
-![screenshot](/demo.gif)
+![screenshot](/screenshot.gif)
 
 #### Image attribution(free)
 
