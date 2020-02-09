@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // DOM element
   const form = document.querySelector("form");
   const list = document.querySelector("#list");
 
+  // Form event
   form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.querySelector("textarea").value;
+    const name = document.querySelector("textarea").value.trim();
 
     axios
       .post("/api/burgers", {
@@ -19,29 +21,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(err);
       });
   });
-});
 
-list.addEventListener("click", function(e) {
-  if (e.target.matches("button")) {
-    const li = e.target.closest("li");
-    const id = li.getAttribute("data-id");
-    const devoured = li.getAttribute("data-devoured") === "1" ? false : true;
-    let burger_type = true;
+  // Devour & Return buttons event
+  list.addEventListener("click", function(e) {
+    if (e.target.matches("button")) {
+      // DOM
+      const li = e.target.closest("li");
 
-    if (devoured) {
-      burger_type = true;
-    } else {
-      burger_type = false;
+      // Data to post to API
+      const id = li.getAttribute("data-id");
+      const devoured = li.getAttribute("data-devoured") === "1" ? false : true;
+      const burger_type = devoured ? true : false;
+
+      axios
+        .patch("/api/burgers", {
+          id,
+          devoured,
+          burger_type
+        })
+        .then(result => {
+          location.reload();
+        });
     }
-
-    axios
-      .patch("/api/burgers", {
-        id,
-        devoured,
-        burger_type
-      })
-      .then(result => {
-        location.reload();
-      });
-  }
+  });
 });

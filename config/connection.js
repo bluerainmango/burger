@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query = promisify(connection.query).bind(connection);
+// Promisify connection.query method to use async/await later
+connection.proQuery = promisify(connection.query).bind(connection);
 
 module.exports = connection;

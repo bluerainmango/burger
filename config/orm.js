@@ -2,18 +2,16 @@ const connection = require("./connection");
 
 exports.orm = {
   selectAll: (table, orderCol) => {
+    // Order by 'changed_at' or 'id'
     const q = "SELECT * FROM ?? ORDER BY ??";
-    const res = connection.query(q, [table, (orderCol = "id")]);
-
-    return res;
+    return connection.proQuery(q, [table, (orderCol = "id")]);
   },
   insertOne: (table, postObj) => {
     const q = "INSERT INTO ?? SET ?";
-
-    return connection.query(q, [table, postObj]);
+    return connection.proQuery(q, [table, postObj]);
   },
   updateOne: (table, postObj, whereCol, whereVal) => {
     const q = "UPDATE ?? SET ? WHERE ?? = ?";
-    return connection.query(q, [table, postObj, whereCol, whereVal]);
+    return connection.proQuery(q, [table, postObj, whereCol, whereVal]);
   }
 };
