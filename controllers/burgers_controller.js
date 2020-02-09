@@ -39,7 +39,7 @@ const updateBurger = catchAsync(async (req, res, next) => {
   const result = await Burger.updateOne({ devoured }, "id", id);
 
   // 2. Update burger_type table for character
-  await BurgerType.updateOne({ burger_type }, "id", 1);
+  await BurgerType.updateOne({ burger_type }, "id", 2);
 
   res.status(200).json({
     status: "success",
