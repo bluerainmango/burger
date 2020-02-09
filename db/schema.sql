@@ -11,10 +11,9 @@ CREATE TABLE burgers (
 );
 
 -- burger character table
-DELETE FROM burger_char;
+DROP TABLE IF EXISTS burger_char;
 
 CREATE TABLE burger_char (
     id INT PRIMARY KEY AUTO_INCREMENT,
     burger_type BOOLEAN
 );
-
